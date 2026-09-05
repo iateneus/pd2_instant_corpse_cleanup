@@ -1,5 +1,6 @@
--- Instant Corpse Cleanup 1.0
---Version 1.1: cleaner code, small adjustments to delay in corpse disposal, and added support for civilian bodies in loud.
+-- Instant Corpse Cleanup 1.2
+--Version 1.1: cleaner code, small adjustments to delay in corpse disposal, and added support for civilian bodies in loud;
+--Version 1.2: test to create self updating feature;
 
 if RequiredScript == "lib/managers/enemymanager" then
 
