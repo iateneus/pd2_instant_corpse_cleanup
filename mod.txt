@@ -2,7 +2,8 @@
   "name": "Instant Corpse Cleanup",
   "description": "Removes enemy bodies, shields, helmets, and cosmetic death debris.",
   "author": "iateneus",
-  "version": "1.2",
+  "image": "thumb.png",
+  "version": "1.2.1",
   "updates": [
   {
     "identifier": "pd2_instant_corpse_cleanup",
