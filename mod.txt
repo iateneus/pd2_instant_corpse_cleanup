@@ -1,6 +1,6 @@
 {
   "name": "Instant Corpse Cleanup",
-  "description": "Removes enemy bodies, shields, helmets, and cosmetic death debris.",
+  "description": "Configurable cleanup of corpses, shields, cosmetic debris and impact decals.",
   "author": "iateneus",
   "image": "thumb.png",
   "version": "1.4",
@@ -29,6 +29,18 @@
     {
       "hook_id": "core/lib/managers/mission/coremissionmanager",
       "script_path": "lua/bph_compatibility.lua"
+    },
+    {
+      "hook_id": "lib/managers/gameplaycentralmanager",
+      "script_path": "lua/no_decals.lua"
+    },
+    {
+      "hook_id": "lib/managers/explosionmanager",
+      "script_path": "lua/no_decals.lua"
+    },
+    {
+      "hook_id": "lib/managers/menumanager",
+      "script_path": "lua/menu.lua"
     }
   ]
 }
