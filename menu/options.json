@@ -39,6 +39,15 @@
       "callback": "icc_remove_decals",
       "value": "remove_decals",
       "default_value": true
+    },
+    {
+      "type": "toggle",
+      "id": "icc_remove_blood",
+      "title": "icc_remove_blood_title",
+      "description": "icc_remove_blood_desc",
+      "callback": "icc_remove_blood",
+      "value": "remove_blood",
+      "default_value": true
     }
   ]
 }
