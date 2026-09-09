@@ -6,7 +6,8 @@ local ICC = { path = ModPath, settings = {
     remove_corpses = true,
     remove_shields = true,
     remove_props = true,
-    remove_decals = true
+    remove_decals = true,
+    remove_blood = true
 } }
 _G.InstantCorpseCleanup = ICC
 ICC.save_path = SavePath .. "instant_corpse_cleanup.json"
@@ -17,6 +18,10 @@ if input then
     input:close()
     local ok, saved = pcall(json.decode, contents)
     if ok and type(saved) == "table" then
+        -- Older versions used one setting for blood, bullets and explosions.
+        if type(saved.remove_blood) ~= "boolean" and type(saved.remove_decals) == "boolean" then
+            ICC.settings.remove_blood = saved.remove_decals
+        end
         for key in pairs(ICC.settings) do
             if type(saved[key]) == "boolean" then
                 ICC.settings[key] = saved[key]
@@ -53,5 +58,5 @@ end
 function ICC:ApplyDecalSettings(central)
     if not central or not central._icc_defaults then return end
     central._block_bullet_decals = self.settings.remove_decals or central._icc_defaults.bullet
-    central._block_blood_decals = self.settings.remove_decals or central._icc_defaults.blood
+    central._block_blood_decals = self.settings.remove_blood or central._icc_defaults.blood
 end
