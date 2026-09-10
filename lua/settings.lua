@@ -7,7 +7,8 @@ local ICC = { path = ModPath, settings = {
     remove_shields = true,
     remove_props = true,
     remove_decals = true,
-    remove_blood = true
+    remove_blood = true,
+    poco_impact_compat = false
 } }
 _G.InstantCorpseCleanup = ICC
 ICC.save_path = SavePath .. "instant_corpse_cleanup.json"
