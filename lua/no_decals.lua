@@ -16,6 +16,7 @@ end)
 
 local original_bullet_hit = Hooks:GetFunction(GamePlayCentralManager, "_play_bullet_hit")
 Hooks:OverrideFunction(GamePlayCentralManager, "_play_bullet_hit", function(self, params)
+    if ICC.settings.poco_impact_compat then return end
     local unit = params.col_ray.unit
     if not ICC.settings.remove_blood or not alive(unit) or not unit:in_slot(self._slotmask_flesh) then
         return original_bullet_hit(self, params)
