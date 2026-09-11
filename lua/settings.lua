@@ -2,7 +2,9 @@ if _G.InstantCorpseCleanup then
     return
 end
 
-local ICC = { path = ModPath, settings = {
+local source = debug.getinfo(1, "S").source:gsub("^@", ""):gsub("\\", "/")
+local mod_path = assert(source:match("^(.*[/])lua/[^/]+$"), "ICC: cannot resolve mod directory")
+local ICC = { path = mod_path, settings = {
     remove_corpses = true,
     remove_shields = true,
     remove_props = true,
