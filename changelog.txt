@@ -7,3 +7,4 @@
 --Version 1.4.1: added bugfix for Panic Room mission where game would cause a crash when all corpses would be removed;
 --Version 1.4.2: separate blood splatters from bullet/explosion decals with an independent toggle;
 --Version 1.4.3: added compatibility for PocoHUD3 (mod by Dom);
+--Version 1.4.4: corrected variables pathing;
