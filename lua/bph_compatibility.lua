@@ -1,11 +1,17 @@
-dofile(ModPath .. "lua/settings.lua")
+
+local source = debug.getinfo(1, "S").source:gsub("^@", ""):gsub("\\", "/")
+local script_dir = assert(source:match("^(.*[/])"), "ICC: cannot resolve script directory")
+dofile(script_dir .. "settings.lua")
 local ICC = InstantCorpseCleanup
 
 local START_ID = 101137 -- link_obj_start011: Clear the area
 local RELEASE_ID = 101413 -- reached_amount_of_enemies_dead_part2
 local WAIT_SECONDS = 20
 
-Hooks:PreHook(CoreMissionManager.MissionScript, "_create_elements",
+local Hooks, Global, Network, log = Hooks, Global, Network, log
+core:module("CoreMissionManager")
+
+Hooks:PreHook(MissionScript, "_create_elements",
     "HellsIslandClearAreaTimer_CreateElements", function(self, elements)
         if not ICC.settings.remove_corpses or not Global.game_settings or Global.game_settings.level_id ~= "bph"
             or not Network:is_server() then
